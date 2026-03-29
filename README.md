@@ -1,225 +1,354 @@
-# BRIEF STRATEGICO: AVIS FROSINONE DIGITAL AUTHORITY
+# AVIS FROSINONE - DIGITAL AUTHORITY BUILD
 
-**Versione:** 1.0  
-**Data inizio:** Marzo 2026  
-**Data target completamento:** Aprile 2026 (lancio sito)  
-**Responsabile:** Mark (AI Director)
+**Repository per la ristrutturazione digitale di avisfrosinone.it**
 
----
-
-## **OBJECTIVE (O)**
-
-Trasformare avisfrosinone.it in **fonte primaria verificata** sul tema donazione sangue nel territorio di Frosinone, così che:
-- Cittadini nuovi trovino AVIS come risposta principale su ricerca Google/AI
-- Conversione da visita a donatore aumenti del 150-200% (baseline 10/mese → target 25-30/mese)
-- AVIS Frosinone negozia con Centro Trasfusionale Ospedale Spaziani il ruolo di **partner principale** (da "una delle associazioni" a "l'associazione partner ufficiale")
+Questo repository contiene tutta l'orchestrazione di agenti AI per costruire un sito moderno, autoritario e orientato alla conversione di nuovi donatori.
 
 ---
 
-## **KEY RESULTS (KR)**
+## **QUICK START (Leggi prima di tutto)**
 
-### KR1: Visibilità organica + AI authority
-- ✅ Sito risponde all'80% delle 40 query prioritarie sulla donazione
-- ✅ Schema.org (FAQPage, LocalBusiness, Organization) implementato su 100% pagine critiche
-- ✅ Posizionamento top-3 Google per query locali: "donare sangue Frosinone", "AVIS Frosinone", "requisiti donazione"
-- ✅ Citazione su Perplexity/ChatGPT Search per query locali (baseline 0 → target ≥2 al mese)
-
-**Target:** 30 giorni post-lancio (maggio 2026)
-
-### KR2: Conversione sito
-- ✅ Form/WhatsApp/chiamate: baseline 2 contatti/mese → target 15 contatti/mese
-- ✅ Tasso conversione contatto → donatore confermato: 60%
-- ✅ Nuovi donatori da canale digitale: baseline 2/mese → target 10/mese
-
-**Target:** 60 giorni post-lancio (giugno 2026)
-
-### KR3: Crescita volontari + partnership
-- ✅ Donatori iscritti AVIS: baseline 40 → target 120 (180% crescita annua)
-- ✅ Convenzioni attive e verificate: baseline 7 → target 12 (con dati effettivi di utilizzo)
-- ✅ Riconoscimento ufficiale come "partner principale" da Centro Trasfusionale
-
-**Target:** 90 giorni post-lancio (giugno 2026)
+1. **Leggi BRIEF.md** → Capisce l'obiettivo complessivo
+2. **Segui PHASE_GUIDE.md** → Step-by-step di cosa fare ogni giorno
+3. **Usa i file in /prompts/** → Copia-incolla i prompt nei rispettivi agenti AI
+4. **Aggiorna FILE_LOG.md** → Documenta i risultati (diario)
+5. **Consulta /docs/** → Riferimenti, template, formati
 
 ---
 
-## **STRATEGIA ESECUTIVA: 3 FASI**
+## **STRUTTURA DIRECTORY**
 
-### FASE 1: DATA COLLECTION & MAPPING (Settimana 1-2)
-**Output:** Ranking priorità pagine + mapping struttura sito
+```
+AVIS-FROSINONE-DIGITAL/
+│
+├── BRIEF.md                          # ← LEGGI PRIMA: strategia + obiettivi
+├── README.md                         # ← Sei qui
+├── PHASE_GUIDE.md                    # ← Come procedere passo-passo
+├── FILE_LOG.md                       # ← Aggiorna quotidianamente (TUO DIARIO)
+│
+├── /prompts/                         # ← File prompt pronti per agenti AI
+│   ├── 00_ORCHESTRATION.md           # ← LEGGI: Come usare gli agenti
+│   ├── prompt_01_perplexity.md       # ← Prompt per Perplexity (ricerca)
+│   ├── prompt_02_deepseek.md         # ← Prompt per DeepSeek (analisi)
+│   ├── prompt_03_gemini.md           # ← Prompt per Gemini (validazione)
+│   ├── prompt_04_chatgpt.md          # ← Prompt per ChatGPT (contenuti)
+│   └── prompt_05_claude.md           # ← Prompt per Claude (review)
+│
+├── /docs/                            # ← Documentazione di supporto
+│   ├── site-structure-template.md    # ← Template struttura sito
+│   ├── content-checklist.md          # ← Checklist qualità contenuti
+│   ├── seo-technical-spec.md         # ← Spec tecniche SEO
+│   └── attachments/                  # ← Cartella per file da allegare ai prompt
+│       ├── CURRENT_WEBSITE_AUDIT.md  # ← Analisi sito attuale
+│       ├── AVIS_DATA.json            # ← Dati AVIS (da compilare)
+│       └── PARTNER_LIST.xlsx         # ← Elenco convenzioni (da allegare)
+│
+├── /outputs/                         # ← Cartella dove salvi i risultati da agenti
+│   ├── phase1_query_data.csv         # ← Output Perplexity
+│   ├── phase1_theme_ranking.json     # ← Output DeepSeek
+│   ├── phase1_institutional_matrix.xlsx  # ← Output Gemini
+│   ├── phase2_site_structure.md      # ← Output Claude
+│   ├── phase2_content_pages/         # ← 20 pagine da ChatGPT
+│   │   ├── 01_home.html
+│   │   ├── 02_requisiti.html
+│   │   ├── 03_procedura.html
+│   │   └── ... (altre 17)
+│   └── phase3_final_deliverable.md   # ← Output finale: sito pronto per dev
+│
+├── /archive/                         # ← Storico di versioni precedenti
+│   └── (vuoto per ora)
+│
+└── .gitignore                        # ← File Git (ignora privati)
+```
 
-| Giorno | Agente | Task | Deliverable |
+---
+
+## **COME USARE QUESTO REPO**
+
+### **Regola 1: File Log è il tuo diario**
+
+Ogni volta che ottieni un output da un agente:
+1. Salva il file in `/outputs/`
+2. Aggiorna `FILE_LOG.md` con: data, agente, deliverable, note
+3. Commit su Git: `git commit -m "Day 2: Perplexity query research completed"`
+
+```markdown
+# Esempio entry in FILE_LOG.md
+## Day 2 - 24 Marzo 2026
+**Agente:** Perplexity  
+**Task:** Query research + volumi  
+**Status:** ✅ Completato  
+**Output file:** /outputs/phase1_query_data.csv  
+**Note:** 40 query raccolte, valori verificati su Google Trends  
+**Next:** Inviare dati a DeepSeek  
+```
+
+### **Regola 2: Seguire l'ordine in PHASE_GUIDE.md**
+
+Non saltare fasi. Se sembra inefficiente, è perché:
+- Ogni fase dipende dal dato della precedente
+- Saltare genera errori che costano 2x tempo dopo
+
+### **Regola 3: Allegare documento di contesto**
+
+Quando chiedi qualcosa a un agente:
+1. Leggi quali doc servono nel prompt file
+2. Preparali in `/docs/attachments/`
+3. Incolla il contenuto nella richiesta all'agente (o allega file se agente lo supporta)
+
+Esempio:
+```
+Prompt Perplexity include:
+  ❌ "Ricerca le query sulla donazione"
+  ✅ "Ricerca le query sulla donazione in Italia per il territorio di Frosinone
+      Contesto: AVIS Frosinone è associazione no-profit con 40 donatori attuali
+      Allegato: /docs/attachments/AVIS_DATA.json"
+```
+
+### **Regola 4: Validare sempre prima di procedere**
+
+Se agente ti dà output sospetto:
+- Chiedi spiegazione
+- Confronta con fonte esterna (Google Trends, Ahrefs pubblico, etc)
+- Se non convince, risotti il prompt con dettagli nuovi
+
+### **Regola 5: Mantieni Git pulito**
+
+```bash
+# Ogni sera:
+git add .
+git commit -m "Day X: [Phase] [Deliverable] [Status]"
+git push
+
+# Esempio:
+git commit -m "Day 3: Phase1 - Query data collected, validated with Google Trends"
+```
+
+---
+
+## **FILE DOCUMENTO CHE DEVI PREPARARE SUBITO**
+
+### **1. `/docs/attachments/AVIS_DATA.json`**
+
+Compila con dati reali su AVIS Frosinone:
+
+```json
+{
+  "organization": {
+    "name": "AVIS Comunale di Frosinone",
+    "founded": 1983,
+    "address": "Via Mazzini 70, 03100 Frosinone",
+    "phone": "+39 377 4901081",
+    "email": "avis.frosinone@... (da aggiungere)",
+    "current_donors": 40,
+    "monthly_donations": 10,
+    "yearly_donations": 120
+  },
+  "partnership": {
+    "hospital": "Ospedale Fabrizio Spaziani",
+    "blood_center": "Centro Trasfusionale - Frosinone",
+    "partner_status": "One of several voluntary associations",
+    "target_partner_status": "Official primary partner"
+  },
+  "territory": {
+    "primary_region": "Frosinone, Lazio, Italy",
+    "secondary_locations": ["Cassino", "Sora"],
+    "target_population": "~75,000 (Frosinone city)"
+  },
+  "volunteers": {
+    "staff_count": 8,
+    "staff_active": true
+  }
+}
+```
+
+### **2. `/docs/attachments/PARTNER_LIST.xlsx` o `.md`**
+
+Lista completa convenzioni attuali:
+
+```markdown
+| Partner | Tipo | Sconto | Attivo? | Contatto | Note |
+|---------|------|--------|--------|----------|------|
+| Farmacia Mastrangeli | Farmacie | 15% | Verificare | +39... | Da contattare |
+| Still Point (Fisio) | Salute | 3 sedute gratis/anno | Verificare | +39... | Ultimo contatto: 2023 |
+| ... | ... | ... | ... | ... | ... |
+```
+
+### **3. `/docs/attachments/CURRENT_WEBSITE_AUDIT.md`**
+
+Analisi veloce del sito attuale (riempi tu, basato su quello che hai visto):
+
+```markdown
+# Website Audit: avisfrosinone.it
+
+## Problemi trovati:
+- Menu confuso: "La Donazione" e "Comunicazione" separati
+- Blog sepolto in "Comunicazione > Info AVIS"
+- Convenzioni nascoste a fine pagina
+- No CTA chiaro per "diventa donatore"
+- Testi lunghi e poco scannerizzabili
+- Nessun testimonial visibile
+- No video
+
+## Punti di forza:
+- Contenuto tecnico completo
+- Info preliminari ben dettagliate
+- FAQ su requisiti
+- Mappa centri trasfusionali
+
+## Opportunità:
+- Foto reali già disponibili (3 foto "un giorno col dono")
+- Database di donatori attuali per testimonial
+- Dati AVIS verificabili
+```
+
+---
+
+## **COME COPIARE I PROMPT AGLI AGENTI**
+
+### **Per Perplexity (perplexity.ai)**
+1. Apri https://perplexity.ai
+2. Copia contenuto completo da `prompt_01_perplexity.md`
+3. Incolla in chat
+4. Se prompt dice "Allegare [file]", copia il contenuto di quel file nel messaggio
+5. Premi invio, aspetta risposta
+6. Copia risposta in `/outputs/phase1_query_data.csv` (o .json se diverso)
+7. Aggiorna FILE_LOG.md
+
+### **Per DeepSeek (deepseek.com)**
+1. Apri https://deepseek.com (o app)
+2. Copia contenuto da `prompt_02_deepseek.md`
+3. Allega il CSV da Perplexity (incolla contenuto nel messaggio)
+4. Aspetta risposta
+5. Salva output in `/outputs/phase1_theme_ranking.json`
+
+### **Per Gemini (gemini.google.com)**
+1. Apri https://gemini.google.com
+2. Copia contenuto da `prompt_03_gemini.md`
+3. Includi il ranking da DeepSeek
+4. Aspetta risposta
+5. Salva output in `/outputs/phase1_institutional_matrix.xlsx` (copia in formato markdown)
+
+### **Per ChatGPT (chatgpt.com)**
+1. Apri https://chatgpt.com
+2. Copia contenuto da `prompt_04_chatgpt.md` 
+3. Includi la struttura sito da Claude
+4. PER OGNI PAGINA, ripeti il prompt con i dati specifici della pagina
+5. Salva ogni pagina in `/outputs/phase2_content_pages/NN_[nome_pagina].html`
+
+### **Per Claude (questo, claude.ai)**
+1. Apri https://claude.ai
+2. Copia contenuto da `prompt_05_claude.md`
+3. Allega dati da Perplexity, DeepSeek, Gemini
+4. Aspetta risposta
+5. Salva in `/outputs/phase2_site_structure.md`
+
+---
+
+## **METRICHE DI SUCCESSO PER OGNI FASE**
+
+### Phase 1: Data Collection (Week 1-2)
+- ✅ Perplexity: 40+ query raccolte con volumi verificati
+- ✅ DeepSeek: 5-7 temi identificati con ranking numerico
+- ✅ Gemini: Fonte ufficiale per ogni tema
+- ✅ Claude: Struttura sito completa con wireframe logico
+
+**Quality Gate:** Tutti e 4 gli output devono essere coerenti (non contraddizioni)
+
+### Phase 2: Content Generation (Week 2-3)
+- ✅ ChatGPT: 20 pagine scritte, SEO-ready, strutturate
+- ✅ Claude: Review completata, feedback incorporati
+- ✅ Tutti i link interni coerenti
+- ✅ Zero broken links
+
+**Quality Gate:** Almeno 15/20 pagine devono passare review al primo giro
+
+### Phase 3: Technical Setup (Week 3-4)
+- ✅ Sito implementato
+- ✅ Schema.org validato
+- ✅ Responsive mobile 100%
+- ✅ Form funzionante
+- ✅ Google Search Console setup
+
+**Quality Gate:** Lighthouse score ≥80 mobile
+
+---
+
+## **COSA FARE SE QUALCOSA VA STORTO**
+
+| Problema | Soluzione |
+|----------|-----------|
+| Agente dà risposta generica | Riscrivi prompt con più context. Allega documenti specifici. |
+| Output ha errori | Chiedi al medesimo agente di revisionare. Fornisci fonte autorità. |
+| Timeline slittarà | Update PHASE_GUIDE.md con nuove date. Comunica al team. |
+| File troppo grande | Spezzalo in 2. Allega pezzi diversi a prompt diversi. |
+| Non sai se proseguire | Contatta Mark. Non andare avanti se in dubbio. |
+
+---
+
+## **CHECKLIST GIORNALIERA**
+
+```
+Ogni mattina:
+☐ Leggi FILE_LOG.md (ricordati dove sei arrivato)
+☐ Apri il prompt file del giorno (vedi PHASE_GUIDE.md)
+☐ Allega documenti necessari
+☐ Invia a agente AI
+☐ Aspetta risposta (da 5 minuti a 30 minuti)
+☐ Copia output in /outputs/
+☐ Aggiorna FILE_LOG.md
+☐ Commit su Git
+☐ Leggi le prossime istruzioni in PHASE_GUIDE.md
+
+Ogni sera:
+☐ git push (sincronizza repo)
+☐ Valida che tutto sia committato
+```
+
+---
+
+## **CONTATTI RAPIDI**
+
+| Ruolo | Nome | Contatto | Ruolo |
 |---|---|---|---|
-| 1-3 | Perplexity | Query research + volumi | CSV: 40 query ordinate per volume |
-| 2-4 | DeepSeek | Analisi pattern + clustering | Ranking 5-7 temi prioritari |
-| 2-4 | Gemini | Validazione istituzionale | Matrice: tema → fonte ufficiale |
-| 5-7 | Claude | Mapping struttura sito | Struttura dettagliata + wireframe logico |
-
-**Consegna:** Documento "Struttura Sito" pronto per sviluppatore
+| **Director** | Mark | Questo repo | Decisioni, escalation |
+| **Repository** | GitHub | (URL da aggiungere) | Sincronizzazione |
+| **Agenti** | Perplexity, DeepSeek, Gemini, ChatGPT, Claude | (URL già note) | Esecuzione task |
 
 ---
 
-### FASE 2: CONTENT GENERATION & REVIEW (Settimana 2-3)
-**Output:** 20 pagine scritte, SEO-ready, strutturate
+## **VERSIONE E CHANGELOG**
 
-| Giorno | Agente | Task | Deliverable |
-|---|---|---|---|
-| 8-14 | ChatGPT | Scrivere 20 pagine prioritarie | HTML pulito, SEO optimized |
-| 14-18 | Claude | Review coerenza + validazione | Feedback + revisioni |
-| 18-21 | ChatGPT | Incorporare feedback | Versione finale pagine |
+**Versione corrente:** 1.0  
+**Ultimo aggiornamento:** 21 Marzo 2026
 
-**Consegna:** Contenuti pronti per implementazione tecnica
+### Changelog:
+- v1.0: Struttura iniziale, prompt pronti, guida completa
 
 ---
 
-### FASE 3: TECHNICAL SETUP & LAUNCH (Settimana 3-4)
-**Output:** Sito live, funzionante, ottimizzato
+## **NOTE FINALI**
 
-| Giorno | Chi | Task |
-|---|---|---|
-| 19-28 | Developer | Setup piattaforma + implementazione contenuti |
-| 25-28 | QA | Test + validazione |
-| 28-30 | Launch team | Deploy + monitoraggio post-lancio |
+### ⚠️ Importante:
+- **Non modificare i prompt di base** senza approvazione Mark
+- **Sempre validare** output con fonte indipendente (Google Trends, Ahrefs pubblico, etc)
+- **Git commit quotidianamente** — questo repo è la memoria del progetto
 
-**Consegna:** Sito live + Google Search Console setup
+### 💡 Suggerimenti:
+- Mantieni sezioni `/prompts/` e `/outputs/` sempre pulite
+- Se crei nuovi file di supporto, mettili in `/docs/`
+- Se scopri nuovi tool utili, documentalo in README update
 
----
-
-## **METRICHE DI SUCCESS**
-
-### Tecniche (Post-lancio, Day 1-30)
-- Indexing Google: 95% pagine indicizzate entro 5 giorni
-- Schema.org validity: 100% (test su schema.org/validator)
-- Page speed: ≥80 Lighthouse score (mobile)
-- Bounce rate home: <40%
-
-### Conversione (Post-lancio, Day 1-60)
-- Form completamenti: ≥10 al mese
-- WhatsApp contatti: ≥5 al mese
-- Telefonate: ≥2-3 al mese
-- Conversione contatto → donazione: 60%
-
-### Autorità (Post-lancio, Day 30-90)
-- Ranking Google "donare sangue Frosinone": top-3
-- Citazione su AI Search (Perplexity/ChatGPT): ≥1 al mese
-- Backlink istituzionali (Ministero/AVIS Nazionale): ≥3
+### 🎯 Ricorda:
+- L'obiettivo non è "fare tanti prompt", è **trasformare AVIS Frosinone in autorità locale**
+- Ogni phase costruisce sulla precedente
+- Qualità > velocità
 
 ---
 
-## **RUOLI E RESPONSABILITÀ**
+**Pronto a iniziare?**  
+→ Leggi PHASE_GUIDE.md domani mattina  
+→ Day 1: Prepara /docs/attachments/ (AVIS_DATA.json, ecc)  
+→ Day 2: Invia primo prompt a Perplexity
 
-| Ruolo                        | Chi        | Responsabilità                                       |
-|------------------------------|------------|------------------------------------------------------|
-| **AI Director**              | Mark       | Orchestrazione agenti, validazione output, decisioni |
-| **Agente Ricerca**           | Perplexity | Query research, volumi, trend                        |
-| **Agente Analisi**           | DeepSeek   | Pattern analysis, clustering, ranking                |
-| **Agente Validazione**       | Gemini     | Fact-checking, autorità istituzionale                |
-| **Agente Orchestrazione**    | Claude     | Mapping, review, synthesis, decisioni                |
-| **Agente Contenuti**         | ChatGPT    | Content generation, copywriting                      |
-| **Developer**                | Esterno    | Implementazione tecnica                              |
-| **Community Manager**        | AVIS       | Gestione post-lancio (non in scope questa fase)      |
-
----
-
-## **BUDGET & RISORSE**
-
-### Strumenti (Gratuiti/Low-cost)
-- Perplexity Free: €0
-- DeepSeek Free: €0
-- Gemini Free: €0
-- Claude (questo): €0 (già in abbonamento)
-- ChatGPT Free: €0 (o €20/mese Plus se serve priorità)
-- GitHub: €0 (free tier)
-
-### Sviluppo sito
-- **Opzione 1 (Budget):** Joomla6 + Helix Ultimate + Sourcere Lab + Akeeba backup + AcyMailing + Icagenda + Route66 + SPPAGE (all free)
-- **Opzione 2 (Moderno):** Webflow = €150/mese (include hosting + CMS)
-- **Opzione 3 (Full custom):** Developer esterno = €2-5k setup + €200-300/mese
-
-### Tempo interno
-- Mark: 10-15 ore (orchestrazione agenti, validazione)
-- Community Manager (post-lancio): 10 ore/settimana
-
----
-
-## **ASSUNZIONI CRITICHE**
-
-✅ Assumiamo:
-1. AVIS Frosinone ha **accesso e autorizzazione** per foto/video donatori
-2. Ospedale Spaziani **concede accesso** per riprese centro trasfusionale (o accettiamo foto attuali)
-3. **Convenzioni partner** possono essere verificate/pulite entro week 1
-4. Developer **disponibile** a partire da week 2 per implementazione
-
-⚠️ Se una di queste fallisce:
-- Timing slittherà di 1-2 settimane
-- Budget potrebbe aumentare
-- Mark valuta mitigazione immediata
-
----
-
-## **DEPENDENCY ESTERNA: TU COME BRIDGE**
-
-La qualità di OGNI output dipende da:
-1. **Prompt chiari** (forniti nel repo)
-2. **Documentazione allegata** (cosa devi caricare)
-3. **Feedback tempestivo** (tu validi e dai feedback rapidi)
-
-Se uno di questi manca:
-- Agenti generano output generico/inutile
-- Tempo raddoppia
-- Qualità crolla
-
-**Soluzione:** Segui il README.md e file prompt con esattezza.
-
----
-
-## **ESCALATION & DECISIONI CRITICHE**
-
-Se durante esecuzione scopri:
-- Query volumi non sufficienti per giustificare pagina → contatta Mark
-- Contenuto generato non rispecchia tone AVIS → chiedi revisione
-- Implementazione tecnica blocca → escalation a developer
-
-**Chi decide:** Mark (Director). Non procedere se in dubbio.
-
----
-
-## **CHECKLIST PRE-LANCIO (Week 3-4)**
-
-- [ ] Sito accessible su dominio (staging o live)
-- [ ] Tutte 20 pagine implementate + visibili
-- [ ] Schema.org validato (FAQPage, LocalBusiness, Article)
-- [ ] Mobile responsive 100%
-- [ ] Form funzionante (raccoglie dati, notification via email)
-- [ ] WhatsApp link attivo
-- [ ] Google Search Console verificato
-- [ ] Analytics (Google Analytics 4) setup
-- [ ] Sitemap.xml generato
-- [ ] robots.txt configurato
-- [ ] GDPR cookie banner implementato
-- [ ] Privacy Policy + Terms aggiornati
-- [ ] Foto/video caricate e ottimizzate
-- [ ] Link interni coerenti (no broken links)
-- [ ] Pagina velocità accettabile (≥80 Lighthouse)
-
----
-
-## **STORIA DI SUCCESS MISURABILE**
-
-**Baseline (Marzo 2026):**
-- 10 donazioni/mese
-- 0 contatti via sito
-- 0 citation su AI search
-- Partner status: "una tra le varie associazioni"
-
-**Target (Giugno 2026):**
-- 25-30 donazioni/mese (+150%)
-- 15+ contatti/mese via sito (+75% conversione a donatore)
-- 2+ citation/mese su AI search
-- Partner status: **"Partner principale AVIS riconosciuto Centro Trasfusionale"**
-
-**Messaggio:** Da invisibile a visibile, da isolato a autorità locale.
-
----
-
-**Data ultimazione:** 21 Marzo 2026  
-**Prossima revisione:** Dopo Phase 1 completion
+**Buona fortuna. 🚀**
