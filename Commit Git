@@ -1,0 +1,11 @@
+# Vai nella cartella del progetto
+cd repo-avis-fr
+
+# Aggiungi TUTTI i file modificati
+git add .
+
+# Commit con messaggio riassuntivo
+git commit -m "Phase 1 completed: Perplexity queries, DeepSeek themes, Gemini validation, Claude structure"
+
+# Invia su GitHub
+git push
