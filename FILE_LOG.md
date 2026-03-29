@@ -6,19 +6,44 @@
 
 ---
 
-## **QUICK STATUS**
+## QUICK STATUS
 
 | Fase | Task | Status | Progress | Target |
 |------|------|--------|----------|--------|
-| **Phase 1** | Data Collection & Mapping | ⏳ Upcoming | 0% | Day 7 |
+| **Phase 1** | Data Collection & Mapping | ⏳ In Progress | 25% | Day 7 |
 | **Phase 2** | Content Generation | ⏳ Upcoming | 0% | Day 17 |
 | **Phase 3** | Technical Setup & Launch | ⏳ Upcoming | 0% | Day 30 |
 
 ---
 
-## **GIORNALE DETTAGLIATO**
+## 🔄 DATA PIPELINE (Phase 1)
 
-### **Day 1 - 24 Marzo 2026**
+Perplexity → `/outputs/phase1_query_data.csv` ✅  
+↓  
+DeepSeek → `/outputs/phase1_theme_ranking.json` ✅  
+↓  
+Gemini → `/outputs/phase1_institutional_matrix.xlsx` ⏳  
+↓  
+Claude → `/outputs/phase2_site_structure.md` ⏳  
+
+**Rule:** ogni step parte SOLO dopo validazione dello step precedente
+
+---
+
+## ⚠️ CRITICAL PATH
+
+Perplexity → DeepSeek → Gemini → Claude  
+
+Qualsiasi ritardo qui blocca tutto il progetto  
+Buffer massimo per step: **24h**
+
+---
+
+## GIORNALE DETTAGLIATO
+
+---
+
+### Day 1 - 24 Marzo 2026
 
 **Planned:**
 - [ ] Creare AVIS_DATA.json
@@ -28,332 +53,277 @@
 - [ ] First FILE_LOG.md entry
 
 **Status:** ⏳ Pending  
-**Agente:** N/A (setup manuale)
+**Agente:** N/A
 
 **Output:**
-- File: `/docs/attachments/AVIS_DATA.json` (da compilare)
-- File: `/docs/attachments/PARTNER_LIST.md` (da compilare)
-- File: `/docs/attachments/CURRENT_WEBSITE_AUDIT.md` (da compilare)
+- `/docs/attachments/AVIS_DATA.json`
+- `/docs/attachments/PARTNER_LIST.md`
+- `/docs/attachments/CURRENT_WEBSITE_AUDIT.md`
 
 **Validation:**
 - [ ] Tutti i file presenti
-- [ ] JSON valido (test JSON validator)
-- [ ] Markdown formattato correttamente
+- [ ] JSON valido
+- [ ] Markdown corretto
 
-**Next:**
-- Day 2: Perplexity query research
-
-**Notes:**
-- [Aspetta che Mark inizi il progetto]
-- [Verifica accesso a tutti gli strumenti AI]
-- [Sincronizza repo con GitHub]
+**Next:** Day 2
 
 ---
 
-### **Day 2 - 25 Marzo 2026**
+### Day 2 - 25 Marzo 2026
 
 **Planned:**
-- [ ] Inviare prompt_01_perplexity.md a Perplexity
-- [ ] Raccogliere 40+ query sulla donazione
-- [ ] Validare su Google Trends
-- [ ] Salvare CSV in /outputs/
+- [x] Inviare prompt_01_perplexity.md
+- [x] Raccogliere 40+ query
+- [x] Validare su Google Trends
+- [x] Salvare CSV
 
-**Status:** ⏳ Pending  
+**Status:** ✅ Completed  
 **Agente:** Perplexity
 
 **Output:**
-- File: `/outputs/phase1_query_data.csv` (da ricevere)
-- Formato: CSV con colonne: Query | Monthly Volume | Search Intent | Competition
+- `/outputs/phase1_query_data.csv`
+
+**Formato:**
+Query | Monthly Volume | Search Intent | Competition
 
 **Validation:**
-- [ ] CSV ha 40+ righe
-- [ ] Volumi ragionevoli (cross-check Google Trends)
-- [ ] Intenti categorizzati correttamente
-
-**Next:**
-- Day 3: DeepSeek analysis
+- [x] 40+ query presenti
+- [x] Volumi coerenti
+- [x] Intent classificati
 
 **Notes:**
-- [Placeholder for Day 2 results]
+- Dataset pronto per analisi
+- Nessun blocco
+
+**Next:** Day 3 (DeepSeek)
 
 ---
 
-### **Day 3 - 26 Marzo 2026**
+### Day 3 - 26 Marzo 2026
+
+**Input:**
+- `/outputs/phase1_query_data.csv`
+
+**Dependency:**
+- Day 2 validato ✅
 
 **Planned:**
-- [ ] Inviare phase1_query_data.csv a DeepSeek
-- [ ] Analizzare pattern + clustering
-- [ ] Identificare 5-7 temi prioritari
+- [ ] Inviare CSV a DeepSeek
+- [ ] Clustering query
+- [ ] Identificare 5-7 temi
 - [ ] Ranking per volume
 
 **Status:** ⏳ Pending  
 **Agente:** DeepSeek
 
+**Handoff:**
+INPUT → `phase1_query_data.csv`  
+OUTPUT → `phase1_theme_ranking.json`  
+
 **Output:**
-- File: `/outputs/phase1_theme_ranking.json` (da ricevere)
-- Formato: JSON con temi, sub-temi, volumi aggregati, ranking
+- `/outputs/phase1_theme_ranking.json`
 
 **Validation:**
-- [ ] 5-7 temi identificati
-- [ ] Ranking logicamente coerente
-- [ ] Volumi aggregati corretti
+- [ ] 5-7 temi
+- [ ] Ranking coerente
+- [ ] Volumi aggregati
 
-**Next:**
-- Day 4: Gemini institutional validation
+**Fail Condition:**
+- Se clustering incoerente → rifare analisi
 
-**Notes:**
-- [Placeholder for Day 3 results]
+**Next:** Day 4
 
 ---
 
-### **Day 4 - 27 Marzo 2026**
+### Day 4 - 27 Marzo 2026
+
+**Input:**
+- `/outputs/phase1_theme_ranking.json`
+
+**Dependency:**
+- Day 3 completato
 
 **Planned:**
-- [ ] Inviare ranking temi a Gemini
-- [ ] Validare vs autorità istituzionali
-- [ ] Trovare fonte ufficiale per ogni tema
-- [ ] Compilare matrice: tema → fonte → messaggio
+- [ ] Validazione fonti istituzionali
+- [ ] Associazione tema → fonte
+- [ ] Creazione matrice
 
 **Status:** ⏳ Pending  
 **Agente:** Gemini
 
+**Handoff:**
+INPUT → `phase1_theme_ranking.json`  
+OUTPUT → `phase1_institutional_matrix.xlsx`  
+
 **Output:**
-- File: `/outputs/phase1_institutional_matrix.xlsx` (da ricevere)
-- Formato: Tabella con colonne: Tema | Fonte Ufficiale | Link | Messaggio Suggerito | Note
+- `/outputs/phase1_institutional_matrix.xlsx`
+
+**Formato:**
+Tema | Fonte | Link | Messaggio | Note
 
 **Validation:**
-- [ ] 7/7 temi hanno fonte
+- [ ] Tutti i temi coperti
 - [ ] Link verificati
-- [ ] Messaggi coerenti con fonte
+- [ ] Coerenza messaggi
 
-**Next:**
-- Day 5: Claude site structure mapping
+**Fail Condition:**
+- Fonti non autorevoli → rifare
 
-**Notes:**
-- [Placeholder for Day 4 results]
+**Next:** Day 5
 
 ---
 
-### **Day 5-7 - 28-30 Marzo 2026**
+### Day 5-7 - 28-30 Marzo 2026
+
+**Input:**
+- Tutti gli output precedenti
+
+**Dependency:**
+- Day 4 completato
 
 **Planned:**
-- [ ] Inviare tutti i dati a Claude
-- [ ] Ricevere struttura sito completa
-- [ ] Wireframe logico per ogni sezione
-- [ ] SEO spec per pagina
+- [ ] Struttura sito
+- [ ] Wireframe logico
+- [ ] SEO spec
+- [ ] CTA map
 
 **Status:** ⏳ Pending  
 **Agente:** Claude
 
+**Handoff:**
+INPUT → dataset completo  
+OUTPUT → `phase2_site_structure.md`  
+
 **Output:**
-- File: `/outputs/phase2_site_structure.md` (da ricevere)
-- Formato: Markdown con: directory tree, wireframe, SEO spec, CTA map
+- `/outputs/phase2_site_structure.md`
 
 **Validation:**
-- [ ] 22 pagine identificate (7 core, 15 secondary)
-- [ ] Gerarchia logica
+- [ ] 22 pagine definite
+- [ ] Gerarchia chiara
 - [ ] CTA coerenti
-- [ ] SEO base configurato
+- [ ] SEO base OK
 
-**Next:**
-- Day 8: ChatGPT content generation (batch 1-5)
+**Fail Condition:**
+- Struttura confusa → revisione
 
-**Notes:**
-- [Placeholder for Phase 1 completion]
+**Next:** Phase 2
 
 ---
 
-## **PHASE 2: CONTENT GENERATION (Days 8-18)**
+## PHASE 2: CONTENT GENERATION (Days 8-18)
 
-### **Day 8-14: Content Generation Batch**
+### Day 8-14: Content Generation
 
 | Batch | Pages | Status | Deadline |
-|-------|-------|--------|----------|
-| Batch 1 | 1-5 | ⏳ Pending | Day 9 |
-| Batch 2 | 6-10 | ⏳ Pending | Day 11 |
-| Batch 3 | 11-15 | ⏳ Pending | Day 13 |
-| Batch 4 | 16-20 | ⏳ Pending | Day 14 |
+|------|------|--------|----------|
+| Batch 1 | 1-5 | ⏳ | Day 9 |
+| Batch 2 | 6-10 | ⏳ | Day 11 |
+| Batch 3 | 11-15 | ⏳ | Day 13 |
+| Batch 4 | 16-20 | ⏳ | Day 14 |
 
 **Agente:** ChatGPT
 
-**Output location:** `/outputs/phase2_content_pages/NN_[tema].html`
-
-**Daily log template:**
-```markdown
-### Day X - [Data]
-**Batch:** [N]
-**Pages generated:** X-Y
-**Status:** [X/5 completate]
-**Validation:** [Quick QA]
-**Next:** [Quale batch domani]
-**Issues:** [Nessuno / Lista problemi]
-```
+**Output:**
+`/outputs/phase2_content_pages/NN_[tema].html`
 
 ---
 
-### **Day 15-17: Content Review**
+### Day 15-17: Review
+
+**Agenti:** Claude + ChatGPT
 
 **Planned:**
-- [ ] Revisionare tutte 20 pagine
-- [ ] Feedback per ogni pagina
-- [ ] Identificare pagine che need revision
-- [ ] Inviare feedback a ChatGPT
-- [ ] Ricevere pagine riviste
-- [ ] Final approval
+- [ ] Review completo
+- [ ] Fix contenuti
+- [ ] Approval finale
 
-**Status:** ⏳ Pending  
-**Agente:** Claude (review) + ChatGPT (revision)
-
-**Review criteria:**
-- Coerenza narrativa
-- Tono consistente
-- CTA chiari
-- Zero contraddizioni
-- SEO base OK
-- Link interni logici
-- No AI-sounding text
-
-**Output:**
-- Updated files in `/outputs/phase2_content_pages/`
-- Tutte pagine con ✅ approval
-
-**Next:**
-- Day 18: Final deliverable
-
-**Notes:**
-- [Placeholder for review results]
+**Criteria:**
+- Coerenza
+- SEO
+- CTA
+- No testo artificiale
 
 ---
 
-### **Day 18: Final Deliverable**
-
-**Planned:**
-- [ ] Compilare `/outputs/phase3_final_deliverable.md`
-- [ ] Includere tutta la struttura
-- [ ] Includere indice delle 20 pagine
-- [ ] Spec tecniche complete
-- [ ] SEO checklist
-- [ ] Launch checklist
-
-**Status:** ⏳ Pending  
-**Agente:** N/A (compilation)
+### Day 18: Final Deliverable
 
 **Output:**
-- File: `/outputs/phase3_final_deliverable.md`
-- Ready for developer pickup
+- `/outputs/phase3_final_deliverable.md`
 
 **Validation:**
-- [ ] Documento completo
-- [ ] Tutti i file linkati correttamente
-- [ ] Nessun placeholder vuoto
-
-**Next:**
-- Phase 3: Developer implementation (Days 19-28)
-
-**Notes:**
-- [Placeholder for deliverable]
+- [ ] Completo
+- [ ] Nessun placeholder
+- [ ] Pronto sviluppo
 
 ---
 
-## **PHASE 3: TECHNICAL SETUP (Days 19-30)**
-
-**Responsabile:** Developer esterno  
-**Mark's role:** Supervision + approval
+## PHASE 3: TECHNICAL (Days 19-30)
 
 | Task | Owner | Status | Deadline |
-|------|-------|--------|----------|
-| Platform setup | Dev | ⏳ | Day 20 |
-| Content implementation | Dev | ⏳ | Day 24 |
-| Schema.org config | Dev | ⏳ | Day 26 |
-| Mobile testing | Dev | ⏳ | Day 27 |
-| Performance optimization | Dev | ⏳ | Day 28 |
-| QA + final testing | Mark + Dev | ⏳ | Day 29 |
+|------|------|--------|----------|
+| Setup | Dev | ⏳ | Day 20 |
+| Content | Dev | ⏳ | Day 24 |
+| Schema | Dev | ⏳ | Day 26 |
+| Mobile | Dev | ⏳ | Day 27 |
+| Performance | Dev | ⏳ | Day 28 |
+| QA | Mark + Dev | ⏳ | Day 29 |
 | Launch | Mark + Dev | ⏳ | Day 30 |
 
-**Notes:**
-- [Update progressivamente con status da developer]
+---
+
+## MASTER CHECKLIST
+
+### Phase 1
+- [x] Perplexity (query)
+- [ ] DeepSeek (temi)
+- [ ] Gemini (fonti)
+- [ ] Claude (struttura)
+
+### Phase 2
+- [ ] 20 pagine
+- [ ] Review completa
+- [ ] Deliverable
+
+### Phase 3
+- [ ] Dev
+- [ ] QA
+- [ ] Launch
 
 ---
 
-## **MASTER CHECKLIST**
+## KPI TRACKING
 
-### Phase 1: Data Collection ✅ / ⏳ / ❌
-- [ ] Day 1-2: Setup + Perplexity (40 query)
-- [ ] Day 3-4: DeepSeek (5-7 temi ranked)
-- [ ] Day 4-5: Gemini (temi validati)
-- [ ] Day 5-7: Claude (struttura sito)
+### Phase 1
+- [x] 40+ query
+- [ ] 5-7 temi
+- [ ] Fonti validate
+- [ ] Struttura sito
 
-### Phase 2: Content Generation ✅ / ⏳ / ❌
-- [ ] Day 8-14: ChatGPT (20 pagine)
-- [ ] Day 15-17: Claude review + revision
-- [ ] Day 18: Final deliverable
+### Phase 2
+- [ ] 20 pagine
+- [ ] 100% approvate
+- [ ] SEO ready
 
-### Phase 3: Technical ✅ / ⏳ / ❌
-- [ ] Day 19-28: Developer implementation
-- [ ] Day 28-30: QA + Launch
-
----
-
-## **KPI TRACKING**
-
-### Phase 1 Success Metrics
-- [ ] 40+ query raccolte
-- [ ] 5-7 temi identificati
-- [ ] 100% temi validati con fonte
-- [ ] Struttura sito completa
-
-### Phase 2 Success Metrics
-- [ ] 20 pagine scritte
-- [ ] 100% pagine approvate (no revision needed)
-- [ ] Tutte pagine SEO-ready
-- [ ] CTA coerenti in 20/20
-
-### Phase 3 Success Metrics
+### Phase 3
 - [ ] Sito live
-- [ ] Lighthouse score 80+
-- [ ] Schema.org valid 100%
-- [ ] Responsive mobile 100%
-- [ ] GSC setup + indexed
+- [ ] Lighthouse 80+
+- [ ] Schema OK
+- [ ] Mobile OK
 
 ---
 
-## **BLOCKERS & ISSUES**
+## BLOCKERS & ISSUES
 
 | Data | Issue | Severity | Status | Resolution |
-|------|-------|----------|--------|------------|
+|------|------|----------|--------|------------|
 | - | - | - | - | - |
 
 ---
 
-## **LESSONS LEARNED**
+## LESSONS LEARNED
 
-(Aggiorna mentre procedi)
-
----
-
-## **TIMELINE OVERVIEW**
-
-```
-Mar 24-30 (Week 1): Phase 1 - Data Collection
-  Day 1:   Setup
-  Day 2-3: Perplexity
-  Day 3-4: DeepSeek  
-  Day 4-5: Gemini
-  Day 5-7: Claude mapping
-
-Mar 31 - Apr 6 (Week 2): Phase 2 - Content
-  Day 8-14: ChatGPT content gen
-  Day 15-17: Claude review + revision
-  Day 18: Final deliverable
-
-Apr 7-13 (Week 3): Phase 3 - Technical
-  Day 19-28: Developer implementation
-  Day 28-30: QA + Launch
-
-TARGET LAUNCH: 30 Aprile 2026
-```
+(Aggiornare durante il progetto)
 
 ---
 
-**Last updated:** [Aggiorna ogni giorno]  
-**Next review:** [Prossimo checkpoint]
+## TIMELINE
