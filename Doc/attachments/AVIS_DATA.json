@@ -1,0 +1,28 @@
+
+{
+  "organization": {
+    "name": "AVIS Comunale di Frosinone",
+    "founded": 2019,
+    "address": "Via Mazzini 70, 03100 Frosinone",
+    "phone": "+39 377 490 1081",
+    "email": "info@avisfrosinone.it",
+    "current_donors": 40,
+    "monthly_donations": 10,
+    "yearly_donations": 120
+  },
+  "partnership": {
+    "hospital": "Ospedale Fabrizio Spaziani",
+    "blood_center": "Centro Trasfusionale - Frosinone",
+    "partner_status": "One of several voluntary associations",
+    "target_partner_status": "Official primary partner"
+  },
+  "territory": {
+    "primary_region": "Frosinone, Lazio, Italy",
+    "secondary_locations": ["Frosinone"],
+    "target_population": "~75,000 (Frosinone city)"
+  },
+  "volunteers": {
+    "staff_count": 5,
+    "staff_active": true
+  }
+}
