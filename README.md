@@ -136,10 +136,10 @@ Compila con dati reali su AVIS Frosinone:
 {
   "organization": {
     "name": "AVIS Comunale di Frosinone",
-    "founded": 1983,
+    "founded": 2019,
     "address": "Via Mazzini 70, 03100 Frosinone",
     "phone": "+39 377 4901081",
-    "email": "avis.frosinone@... (da aggiungere)",
+    "email": "info@avisfrosinone.it",
     "current_donors": 40,
     "monthly_donations": 10,
     "yearly_donations": 120
@@ -169,8 +169,30 @@ Lista completa convenzioni attuali:
 ```markdown
 | Partner | Tipo | Sconto | Attivo? | Contatto | Note |
 |---------|------|--------|--------|----------|------|
-| Farmacia Mastrangeli | Farmacie | 15% | Verificare | +39... | Da contattare |
-| Still Point (Fisio) | Salute | 3 sedute gratis/anno | Verificare | +39... | Ultimo contatto: 2023 |
+| Seeweb | Servizi di Cloud Computing | 0% | SI | Fornitore dello spazio WEB/Cloud |
+| Duferco | Vendita Energia elettrica e Gas | 0% ! SI ! partner associato |
+| ACI Frosinone ! Servizi Automobilistici | da ridefinire | SI | Partner da contattare |
+| Atletica Frosinone | Sport | da ridefinire | SI | Partner da contattare |
+| Banca Popolare del Cassinate | Servizi bancari | da ridefinire | SI | Partner da contattare |
+| Beatyyful Medical SpA | Servizi sanitari | da ridefinire | SI | Partner da contattare |
+| Campioni gomme | Fornitura Pneumatici | da ridefinire | SI | Partner da contattare |
+| Croce Rossa Italiana | Servizi sanitari ed ambulanze | da ridefinire | SI | Partner da contattare | Farmacia Mastrangeli | Farmacie | da ridefinire | SI | Partner da contattare |
+| Finelli srl | Mobili per ufficio | da ridefinire | SI | Partner da contattare |
+| Folgore | Servizio protezione anticendio | da ridefinire | SI | Partner da contattare |
+| Fotomania Fotografia | Studio fotografico | da ridefinire | SI | Partner da contattare |
+| Geom. Carlo Pavia | Studio geometra | da ridefinire | SI | Partner da contattare |
+| Geslan | Servizi sanitari | da ridefinire | SI | Partner da contattare |
+| L'auto accessorio | Servizi per auto | da ridefinire | SI | Partner da contattare |
+| Localraise | Agenzia marketing | da ridefinire | SI | Partner da contattare |
+| Logyc | -- | da ridefinire | SI | Partner da contattare |
+| Maceroni | Studio dentistico | da ridefinire | SI | Partner da contattare |
+| Musical Goggi | Vendita strumenti musicali | da ridefinire | SI | Partner da contattare |
+| OMEC | servizi di noleggio professionale alle imprese| da ridefinire | SI | Partner da contattare | Ortopedia italia | Sanitaria | da ridefinire | SI | Partner da contattare |
+| Otovision ! Ottico | da ridefinire | SI | Partner da contattare |
+| Peronti | Officina meccanica | da ridefinire | SI | Partner da contattare |
+| Real Caffé | Vendita caffé | da ridefinire | SI | Partner da contattare |
+| Seti | Impianti elettrici industriali e civili| da ridefinire | SI | Partner da contattare |
+| Veronese |  Sicurezza sul lavoro | da ridefinire | SI | Partner da contattare |
 | ... | ... | ... | ... | ... | ... |
 ```
 
