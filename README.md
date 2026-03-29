@@ -131,7 +131,7 @@ Trasformare avisfrosinone.it in **fonte primaria verificata** sul tema donazione
 - GitHub: €0 (free tier)
 
 ### Sviluppo sito
-- **Opzione 1 (Budget):** WordPress + tema premium = €500 setup + €50/mese
+- **Opzione 1 (Budget):** Joomla6 + Helix Ultimate + Sourcere Lab + Akeeba backup + AcyMailing + Icagenda + Route66 + SPPAGE (all free)
 - **Opzione 2 (Moderno):** Webflow = €150/mese (include hosting + CMS)
 - **Opzione 3 (Full custom):** Developer esterno = €2-5k setup + €200-300/mese
 
