@@ -327,3 +327,40 @@ OUTPUT → `phase2_site_structure.md`
 ---
 
 ## TIMELINE
+### Day 4 - 27 Marzo 2026
+
+**Input:**
+- `/outputs/phase1_theme_ranking.json`
+
+**Dependency:**
+- Day 3 completato ✅
+
+**Planned:**
+- Validazione fonti istituzionali
+- Associazione tema → fonte
+- Creazione matrice
+
+**Status:** ✅ Completed
+
+**Agente:** Gemini
+
+**Handoff:**
+INPUT → `phase1_theme_ranking.json`
+OUTPUT → `phase1_institutional_matrix.md`
+
+**Output:**
+- `/outputs/phase1_institutional_matrix.md`
+
+**Validation:**
+- Tutti i 7 temi coperti
+- Fonti ufficiali validate (Ministero, AVIS Nazionale, CNS, ASL Frosinone)
+- Link verificati
+- Messaggi compliant
+- Note legali incluse
+
+**Notes:**
+- 7 temi validati con fonti istituzionali
+- Ricerca speciale su riconoscimento AVIS completata
+- 5 domande strategiche per Fase 2 identificate
+
+**Next:** Day 5-7 (Claude - struttura sito)
