@@ -1,0 +1,199 @@
+{
+  "analysis_date": "2026-03-26",
+  "total_queries_analyzed": 42,
+  "themes_identified": 7,
+  
+  "themes": [
+    {
+      "rank": 1,
+      "name": "Requisiti e idoneità alla donazione",
+      "queries_count": 11,
+      "monthly_volume_total": 14030,
+      "volume_percentage": "30.5%",
+      "intent_category": "Considerazione",
+      "conversion_priority": "MASSIMA",
+      "sub_themes": [
+        "Requisiti generali (età, peso, salute)",
+        "Malattie e condizioni escludenti (diabete, parto, tatuaggi)",
+        "Farmaci e terapie",
+        "Domande esistenziali sul 'posso donare se...'"
+      ],
+      "sample_queries": [
+        "requisiti donazione sangue",
+        "posso donare se ho diabete",
+        "posso donare se ho tatuaggio",
+        "esclusioni donazione sangue"
+      ],
+      "seo_opportunity": "High"
+    },
+    {
+      "rank": 2,
+      "name": "Benefici e motivazione psicologica",
+      "queries_count": 8,
+      "monthly_volume_total": 11690,
+      "volume_percentage": "25.4%",
+      "intent_category": "Consapevolezza",
+      "conversion_priority": "ALTA",
+      "sub_themes": [
+        "Benefici per il donatore",
+        "Benefici sociali",
+        "Sicurezza dell'atto",
+        "Motivazioni ideali"
+      ],
+      "sample_queries": [
+        "benefici donazione sangue",
+        "donare sangue fa bene",
+        "perché donare sangue",
+        "importanza donazione sangue"
+      ],
+      "seo_opportunity": "High"
+    },
+    {
+      "rank": 3,
+      "name": "Logistica e accesso ai servizi",
+      "queries_count": 7,
+      "monthly_volume_total": 6810,
+      "volume_percentage": "14.8%",
+      "intent_category": "Azione",
+      "conversion_priority": "ALTA",
+      "sub_themes": [
+        "Dove donare (centri trasfusionali)",
+        "Prenotazione appuntamento",
+        "Servizi AVIS"
+      ],
+      "sample_queries": [
+        "dove donare sangue",
+        "centro trasfusionale",
+        "prenotare donazione sangue",
+        "donazione sangue vicino a me"
+      ],
+      "seo_opportunity": "High"
+    },
+    {
+      "rank": 4,
+      "name": "Procedure e preparazione alla donazione",
+      "queries_count": 5,
+      "monthly_volume_total": 4030,
+      "volume_percentage": "8.8%",
+      "intent_category": "Considerazione",
+      "conversion_priority": "MEDIA",
+      "sub_themes": [
+        "Durata della procedura",
+        "Preparazione pre-donazione",
+        "Effetti collaterali e paure"
+      ],
+      "sample_queries": [
+        "procedure donazione sangue",
+        "quanto tempo dura donazione sangue",
+        "effetti donazione sangue",
+        "fa male donare sangue"
+      ],
+      "seo_opportunity": "Medium"
+    },
+    {
+      "rank": 5,
+      "name": "Query locali Frosinone e provincia",
+      "queries_count": 12,
+      "monthly_volume_total": 825,
+      "volume_percentage": "1.8%",
+      "intent_category": "Locale",
+      "conversion_priority": "ALTA (per pubblico locale)",
+      "sub_themes": [
+        "Centri e strutture a Frosinone",
+        "Contatti AVIS Frosinone",
+        "Comuni limitrofi (Cassino, Sora)"
+      ],
+      "sample_queries": [
+        "donazione sangue Frosinone",
+        "AVIS Frosinone",
+        "ospedale Spaziani donazione",
+        "prenotare donazione Frosinone"
+      ],
+      "seo_opportunity": "High (per sito AVIS Frosinone)"
+    },
+    {
+      "rank": 6,
+      "name": "Diventare donatore AVIS",
+      "queries_count": 4,
+      "monthly_volume_total": 685,
+      "volume_percentage": "1.5%",
+      "intent_category": "Azione",
+      "conversion_priority": "MASSIMA",
+      "sub_themes": [
+        "Iscrizione ad AVIS",
+        "Benefici e convenzioni AVIS"
+      ],
+      "sample_queries": [
+        "iscriversi AVIS",
+        "AVIS donazione sangue",
+        "convenzioni AVIS Frosinone",
+        "become donatore AVIS Frosinone"
+      ],
+      "seo_opportunity": "High"
+    },
+    {
+      "rank": 7,
+      "name": "Donazioni in situazioni specifiche",
+      "queries_count": 4,
+      "monthly_volume_total": 1830,
+      "volume_percentage": "4.0%",
+      "intent_category": "Considerazione",
+      "conversion_priority": "BASSA",
+      "sub_themes": [
+        "Post-parto",
+        "Con patologie croniche",
+        "Donazioni differite"
+      ],
+      "sample_queries": [
+        "donazione sangue dopo parto",
+        "posso donare se ho diabete",
+        "controindicazioni donazione sangue"
+      ],
+      "seo_opportunity": "Medium"
+    }
+  ],
+  
+  "gaps_and_opportunities": [
+    {
+      "gap": "Si può davvero morire donando sangue?",
+      "volume_estimate": "N/A (poco cercato ma molto temuto)",
+      "why_important": "Molte persone hanno paura inconsapevole di conseguenze gravi. Una rassicurazione autorevole aumenta la conversione.",
+      "avis_opportunity": "Pagina 'Sicurezza al primo posto: sfatiamo i miti sulla donazione' con dati ufficiali e testimonianze."
+    },
+    {
+      "gap": "Quanto tempo ci vuole TUTTO (attesa + prelievo + riposo)?",
+      "volume_estimate": "Basso su singola query, ma diffuso nei dubbi pre-donazione",
+      "why_important": "Le persone vogliono pianificare la mezza giornata. Dettaglio pratico rimuove un ostacolo mentale.",
+      "avis_opportunity": "Checklist interattiva 'Simula la tua prima donazione: tempi e fasi' sul sito."
+    },
+    {
+      "gap": "Cosa succede se svenghi o stai male durante la donazione?",
+      "volume_estimate": "N/A (domanda frequente in sede di donazione)",
+      "why_important": "Gestione trasparente delle paure più comuni. Riduce l'ansia da prestazione.",
+      "avis_opportunity": "Video FAQ con un infermiere che spiega procedure di sicurezza e gestione dei casi rari."
+    },
+    {
+      "gap": "Posso donare se ho avuto il COVID o il vaccino?",
+      "volume_estimate": "In crescita (dati recenti non nel dataset)",
+      "why_important": "Domanda emergente che blocca molti potenziali donatori. Risposta chiara e aggiornata è un moltiplicatore di conversioni.",
+      "avis_opportunity": "Sezione 'Domande post-pandemia' nel centro FAQ, aggiornata secondo linee guida ministeriali."
+    },
+    {
+      "gap": "Donare sangue dimagrisce o fa ingrassare?",
+      "volume_estimate": "Basso (curiosità fringe)",
+      "why_important": "Credenza popolare che può frenare o attrarre per motivi sbagliati. Chiarezza evita fraintendimenti.",
+      "avis_opportunity": "Pagina 'Verità e falsi miti sulla donazione' con sezione dedicata al metabolismo."
+    }
+  ],
+  
+  "summary": {
+    "total_themes": 7,
+    "top_3_themes": [
+      "Requisiti e idoneità alla donazione",
+      "Benefici e motivazione psicologica",
+      "Logistica e accesso ai servizi"
+    ],
+    "total_volume": 46000,
+    "notes": "Le query locali rappresentano solo l'1.8% del volume totale, ma hanno un'alta rilevanza per il sito AVIS Frosinone perché generano traffico geolocalizzato pronto all'azione. I temi Requisiti e Benefici coprono oltre il 55% del volume totale e devono essere prioritari nella struttura informativa. Il gap più rilevante è la gestione trasparente delle paure implicite (svenimenti, rischi letali), che non emergono dalle keyword ma bloccano la conversione."
+  }
+}
