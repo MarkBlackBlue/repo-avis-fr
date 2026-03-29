@@ -364,3 +364,12 @@ OUTPUT → `phase1_institutional_matrix.md`
 - 5 domande strategiche per Fase 2 identificate
 
 **Next:** Day 5-7 (Claude - struttura sito)
+
+### Day 5-7 - 28-30 Marzo 2026
+**Agente:** Claude
+**Task:** Site structure & wireframes
+**Status:** ✅ Completed
+**Output:** `/outputs/phase2_site_structure.md`
+**Pagine definite:** 26 (10 CORE + 9 SECONDARY + 7 TERTIARY)
+**Note:** Struttura gerarchica, SEO spec, linking strategy completi
+**Next:** Phase 2 - ChatGPT content generation (Day 8-14)
